@@ -1,0 +1,7 @@
+# Copy to config/kiosk.conf and customize. Never commit secrets.
+# Trusted Bash configuration: sourced by kiosk.sh.
+KIOSK_URL="https://example.org/dashboard/"
+KIOSK_LANGUAGE="en-US"
+KIOSK_RESTART_DELAY=3
+# KIOSK_BROWSER="chromium-browser"
+# KIOSK_PROFILE_DIR="$HOME/.local/share/my-kiosk-profile"
