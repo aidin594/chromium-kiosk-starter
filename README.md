@@ -1,5 +1,9 @@
 # Chromium Kiosk Starter
 
+![Checks](https://github.com/aidin594/chromium-kiosk-starter/actions/workflows/checks.yml/badge.svg)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Platform](https://img.shields.io/badge/platform-Linux%20X11-informational)
+
 A lightweight, white-label Chromium kiosk launcher for **Linux X11 desktops**. Display any website in full-screen mode, configure behavior without changing the script, and automatically relaunch Chromium when it closes.
 
 > Independent community project. Not affiliated with Google or the Chromium project.
@@ -30,7 +34,7 @@ git clone https://github.com/aidin594/chromium-kiosk-starter.git
 cd chromium-kiosk-starter
 cp config/kiosk.conf.example config/kiosk.conf
 nano config/kiosk.conf
-./kiosk.sh
+bash kiosk.sh
 ```
 
 Set `KIOSK_URL` to the page you want to display. Run the launcher as the user logged into the graphical session. When launching from SSH, ensure the same user has access to the X11 display (for example `DISPLAY=:0 ./kiosk.sh`).
@@ -38,7 +42,7 @@ Set `KIOSK_URL` to the page you want to display. Run the launcher as the user lo
 ## Start automatically at login
 
 ```bash
-./scripts/install-autostart.sh
+bash scripts/install-autostart.sh
 ```
 
 Sign out and back in to test. Do **not** run two independent kiosk launchers at the same time.
@@ -46,7 +50,7 @@ Sign out and back in to test. Do **not** run two independent kiosk launchers at 
 Remove automatic startup (without deleting your profile or configuration):
 
 ```bash
-./scripts/uninstall-autostart.sh
+bash scripts/uninstall-autostart.sh
 ```
 
 ## Configuration
