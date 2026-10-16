@@ -7,7 +7,7 @@ cat > "$HOME/.config/autostart/chromium-kiosk-starter.desktop" <<EOF_DESKTOP
 Type=Application
 Name=Chromium Kiosk
 Comment=Launch Chromium in kiosk mode
-Exec=$ROOT/kiosk.sh
+Exec=/bin/bash $ROOT/kiosk.sh
 Terminal=false
 X-GNOME-Autostart-enabled=true
 EOF_DESKTOP
