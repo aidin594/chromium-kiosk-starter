@@ -1,0 +1,9 @@
+config/kiosk.conf
+*.log
+*.pid
+.DS_Store
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
