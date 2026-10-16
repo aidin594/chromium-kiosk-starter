@@ -1,0 +1,32 @@
+name: Publish preview release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prerelease:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate shell syntax
+        run: bash -n kiosk.sh scripts/*.sh
+      - name: Publish v0.1.0 preview if absent
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v0.1.0 >/dev/null 2>&1; then
+            echo "v0.1.0 already exists; not replacing."
+            exit 0
+          fi
+          gh release create v0.1.0 \
+            --target "$GITHUB_SHA" \
+            --title "v0.1.0 — Initial preview" \
+            --prerelease \
+            --notes "Initial white-label Chromium kiosk starter for Linux X11. Includes configurable launcher, desktop autostart helper, documentation and Bash syntax validation. Preview release: deployment on clean target systems has not yet been verified."
